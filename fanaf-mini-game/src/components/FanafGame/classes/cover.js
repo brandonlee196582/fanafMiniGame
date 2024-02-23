@@ -1,16 +1,19 @@
 var coverImg = new Image();
 coverImg.src = "./images/pixel-cover.png";
 
+var scanlinesImg = new Image();
+scanlinesImg.src = "./images/scanlines.png";
+
 export class cover {
     constructor(canvas, ctx) {
         this.x = 0;
         this.y = 0;
-        this.sx = 2045;
+        this.sx = 0;
         this.sy = 0;
         this.width = canvas.width;
         this.height = canvas.height;
-        this.sWidth = 889;
-        this.sHeight = 586;
+        this.sWidth = 1024;
+        this.sHeight = 768;
         this.ctx = ctx;
     }
     moveFrame(xMod, yMod, sxMod, syMod) {
@@ -21,7 +24,7 @@ export class cover {
     }
     draw() {
         this.ctx.drawImage(
-            coverImg,
+            scanlinesImg,
             this.sx,
             this.sy,
             this.sWidth,

@@ -56,49 +56,79 @@ export const FanafGame = () => {
         const left = [];
         const right = [40, 0, 0, 400];
 
-        Room.addRoom(new Room(1, { x: 65, y: 46 }, null, []));
-        Room.addRoom(new Room(2, { x: 65, y: 179 }, right, []));
-        Room.addRoom(new Room(3, { x: 65, y: 312 }, null, []));
-        Room.addRoom(new Room(4, { x: 65, y: 445 }, null, []));
-        Room.addRoom(new Room(5, { x: 65, y: 578 }, null, []));
-        Room.addRoom(new Room(6, { x: 241, y: 46 }, null, []));
-        Room.addRoom(
-            new Room(7, { x: 241, y: 179 }, right, [
-                { xFrom: -153, xTo: 40, yFrom: 67, yTo: -196 },
-                { xFrom: -153, xTo: 973, yFrom: -75, yTo: -196 },
-                { xFrom: 773, xTo: 973, yFrom: 67, yTo: -196 },
-            ])
-        );
-        Room.addRoom(new Room(8, { x: 241, y: 312 }, right, []));
-        Room.addRoom(new Room(9, { x: 241, y: 445 }, up, []));
-        Room.addRoom(new Room(10, { x: 241, y: 578 }, right, []));
-        Room.addRoom(new Room(11, { x: 417, y: 46 }, null, []));
-        Room.addRoom(
-            new Room(12, { x: 417, y: 179 }, right, [
-                { xFrom: -153, xTo: 40, yFrom: 67, yTo: -196 },
-                { xFrom: -153, xTo: 973, yFrom: -75, yTo: -196 },
-                { xFrom: 773, xTo: 973, yFrom: 67, yTo: -196 },
-            ])
-        );
-        Room.addRoom(new Room(13, { x: 417, y: 312 }, right, []));
-        Room.addRoom(new Room(14, { x: 417, y: 445 }, null, []));
-        Room.addRoom(new Room(15, { x: 417, y: 578 }, right, []));
-        Room.addRoom(new Room(16, { x: 593, y: 46 }, null, []));
-        Room.addRoom(
-            new Room(17, { x: 593, y: 179 }, right, [
-                { xFrom: -153, xTo: 40, yFrom: 67, yTo: -196 },
-                { xFrom: -153, xTo: 973, yFrom: -75, yTo: -196 },
-                { xFrom: 773, xTo: 973, yFrom: 67, yTo: -196 },
-            ])
-        );
-        Room.addRoom(new Room(18, { x: 593, y: 312 }, up, []));
-        Room.addRoom(new Room(19, { x: 593, y: 445 }, up, []));
-        Room.addRoom(new Room(20, { x: 593, y: 578 }, up, []));
-        Room.addRoom(new Room(21, { x: 769, y: 46 }, null, []));
-        Room.addRoom(new Room(22, { x: 769, y: 179 }, up, []));
-        Room.addRoom(new Room(23, { x: 769, y: 312 }, up, []));
-        Room.addRoom(new Room(24, { x: 769, y: 445 }, null, []));
-        Room.addRoom(new Room(25, { x: 769, y: 578 }, null, []));
+        const tOpeningObsticle = [
+            { xFrom: -153, xTo: 260, yFrom: -75, yTo: -196 },
+            { xFrom: 553, xTo: 973, yFrom: -75, yTo: -196 }
+        ];
+        const tBlockObsticle = [
+            { xFrom: -153, xTo: 973, yFrom: -75, yTo: -196 }
+        ];
+        const bOpeningObsticle = [
+            { xFrom: -153, xTo: 260, yFrom: 768, yTo: 480 },
+            { xFrom: 553, xTo: 973, yFrom: 768, yTo: 480 }
+        ];
+        const bBlockObsticle = [
+            { xFrom: -153, xTo: 973, yFrom: 768, yTo: 480 }
+        ];
+        const lOpeningObsticle = [
+            { xFrom: -153, xTo: 40, yFrom: 67, yTo: -196 },
+            { xFrom: -153, xTo: 40, yFrom: 768, yTo: 350 }
+        ];
+        const lBlockObsticle = [
+            { xFrom: -153, xTo: 40, yFrom: 768, yTo: -196 }
+        ];
+        const rOpeningObsticle = [
+            { xFrom: 773, xTo: 973, yFrom: 67, yTo: -196 },
+            { xFrom: 773, xTo: 973, yFrom: 768, yTo: 350 }
+        ];
+        const rBlockObsticle = [
+            { xFrom: 773, xTo: 973, yFrom: 768, yTo: -196 }
+        ];
+
+        const tblOpeningRoomObsticle = tOpeningObsticle.concat(bOpeningObsticle, lOpeningObsticle, rBlockObsticle);
+        const tbrOpeningRoomObsticle = tOpeningObsticle.concat(bOpeningObsticle, lBlockObsticle, rOpeningObsticle);
+        const tlrOpeningRoomObsticle = tOpeningObsticle.concat(bBlockObsticle, lOpeningObsticle, rOpeningObsticle);
+        const blrOpeningRoomObsticle = tBlockObsticle.concat(bOpeningObsticle, lOpeningObsticle, rOpeningObsticle);
+        const tbOpeningRoomObsticle = tOpeningObsticle.concat(bOpeningObsticle, lBlockObsticle, rBlockObsticle);
+        const tlOpeningRoomObsticle = tOpeningObsticle.concat(bBlockObsticle, lOpeningObsticle, rBlockObsticle);
+        const trOpeningRoomObsticle = tOpeningObsticle.concat(bBlockObsticle, lBlockObsticle, rOpeningObsticle);
+        const lrOpeningRoomObsticle = tBlockObsticle.concat(bBlockObsticle, lOpeningObsticle, rOpeningObsticle);
+        const tOpeningRoomObsticle = tOpeningObsticle.concat(bBlockObsticle, lBlockObsticle, rBlockObsticle);
+        const bOpeningRoomObsticle = tBlockObsticle.concat(bOpeningObsticle, lBlockObsticle, rBlockObsticle);
+        const rOpeningRoomObsticle = tBlockObsticle.concat(bBlockObsticle, lBlockObsticle, rOpeningObsticle);
+
+        let obsticleArray = [];
+        obsticleArray = rOpeningRoomObsticle;
+        obsticleArray.push({ xFrom: 20, xTo: 578, yFrom: 335, yTo: -45 });
+        Room.addRoom(new Room(2, { x: 0, y: 768 }, right, obsticleArray));
+        obsticleArray = blrOpeningRoomObsticle;
+        Room.addRoom(new Room(7, { x: 1024, y: 768 }, right, obsticleArray));
+        obsticleArray = tbrOpeningRoomObsticle;
+        Room.addRoom(new Room(8, { x: 1024, y: 1536 }, right, obsticleArray));
+        obsticleArray = tbOpeningRoomObsticle;
+        Room.addRoom(new Room(9, { x: 1024, y: 2304 }, up, obsticleArray));
+        obsticleArray = trOpeningRoomObsticle;
+        Room.addRoom(new Room(10, { x: 1024, y: 3072 }, right, obsticleArray));
+        obsticleArray = blrOpeningRoomObsticle;
+        Room.addRoom(new Room(12, { x: 2048, y: 768 }, right, obsticleArray));
+        obsticleArray = tlrOpeningRoomObsticle;
+        Room.addRoom(new Room(13, { x: 2048, y: 1536 }, right, obsticleArray));
+        obsticleArray = lrOpeningRoomObsticle;
+        Room.addRoom(new Room(15, { x: 2048, y: 3072 }, right, obsticleArray));
+        obsticleArray = blrOpeningRoomObsticle;
+        Room.addRoom(new Room(17, { x: 3072, y: 768 }, right, obsticleArray));
+        obsticleArray = tblOpeningRoomObsticle;
+        Room.addRoom(new Room(18, { x: 3072, y: 1536 }, up, obsticleArray));
+        obsticleArray = tbOpeningRoomObsticle;
+        Room.addRoom(new Room(19, { x: 3072, y: 2304 }, up, obsticleArray));
+        obsticleArray = tlOpeningRoomObsticle;
+        Room.addRoom(new Room(20, { x: 3072, y: 3072 }, up, obsticleArray));
+        obsticleArray = bOpeningRoomObsticle;
+        Room.addRoom(new Room(21, { x: 4096, y: 0 }, null, obsticleArray));
+        obsticleArray = tblOpeningRoomObsticle;
+        Room.addRoom(new Room(22, { x: 4096, y: 768 }, up, obsticleArray));
+        obsticleArray = tOpeningRoomObsticle;
+        Room.addRoom(new Room(23, { x: 4096, y: 1536 }, up, obsticleArray));
 
         Room.setCurrentRoom(Room.getAllRooms()[11]);
         let shadowInRoom = false;
@@ -169,11 +199,11 @@ export const FanafGame = () => {
                 Room.getCurrentRoom().intervals.push(interval);
                 shawdowMoving = true;
             }
-            // console.log(Room.getCurrentRoom());
+            console.log(Room.getCurrentRoom());
         };
 
         let update = () => {
-            console.log(Bonnie.x, Bonnie.y)
+            // console.log(Bonnie.x, Bonnie.y)
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             if (Bonnie.sx > 200) {
@@ -187,25 +217,25 @@ export const FanafGame = () => {
             if (Bonnie.x > 973) {
                 Bonnie.x = -40;
                 Bonnie.y = Bonnie.y;
-                building1.sx = building1.sx + 176;
+                building1.sx = building1.sx + 1024;
                 FredRoomMove();
             }
             if (Bonnie.x < -155) {
                 Bonnie.x = 873;
                 Bonnie.y = Bonnie.y;
-                building1.sx = building1.sx - 176;
+                building1.sx = building1.sx - 1024;
                 FredRoomMove();
             }
             if (Bonnie.y > 760) {
                 Bonnie.y = 2;
                 Bonnie.x = Bonnie.x;
-                building1.sy = building1.sy + 133;
+                building1.sy = building1.sy + 768;
                 FredRoomMove();
             }
             if (Bonnie.y < -196) {
                 Bonnie.y = 575;
                 Bonnie.x = Bonnie.x;
-                building1.sy = building1.sy - 133;
+                building1.sy = building1.sy - 768;
                 FredRoomMove();
             }
 

@@ -30,38 +30,31 @@ export class BonnieMove {
             let bContact = this.y <= obstacle.yFrom;
             let lContact = this.x >= obstacle.xFrom;
             let rContact = this.x <= obstacle.xTo;
-            let tolerance = 10;
+            let tolerance = 50;
+
 
             if (tContact && bContact && lContact && rContact) {
-                if (
-                    this.y - obstacle.yFrom <= tolerance ||
-                    this.y - obstacle.yFrom <= -tolerance
-                ) {
+                if (this.y - obstacle.yFrom >= -tolerance && this.y - obstacle.yFrom <= tolerance) {
                     allowUp = false;
                 }
-
-                if (
-                    this.y - obstacle.yTo <= tolerance ||
-                    this.y - obstacle.yTo <= -tolerance
-                ) {
+                if (this.y - obstacle.yTo >= -tolerance && this.y - obstacle.yTo <= tolerance) {
                     allowDown = false;
                 }
-                if (
-                    this.x - obstacle.xTo >= -tolerance ||
-                    obstacle.xTo - this.x <= tolerance
-                ) {
+                if (this.x - obstacle.xTo >= -tolerance && this.x - obstacle.xTo <= tolerance) {
                     allowLeft = false;
                 }
-                if (
-                    this.x - obstacle.xFrom <= tolerance ||
-                    obstacle.xFrom - this.x >= -tolerance
-                ) {
+                if (this.x - obstacle.xFrom >= -tolerance && this.x - obstacle.xFrom <= tolerance) {
                     allowRight = false;
                 }
             }
         });
         if (!allowUp) {
             if (yMod < 1) {
+                yModChange = 0;
+            }
+        }
+        if (!allowDown) {
+            if (yMod > 1) {
                 yModChange = 0;
             }
         }

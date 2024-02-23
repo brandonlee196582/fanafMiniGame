@@ -1,14 +1,14 @@
-var fredRoomImg1 = new Image();
-fredRoomImg1.src = "./images/fredRoom.png";
+var gameMapImg = new Image();
+gameMapImg.src = "./images/fanafMap.png";
 
 export class Room1 {
     constructor(canvas, ctx) {
         this.x = 0;
         this.y = 0;
-        this.sx = 417;
-        this.sy = 179;
-        this.sWidth = 176;
-        this.sHeight = 130;
+        this.sx = 2048;
+        this.sy = 768;
+        this.sWidth = 1024;
+        this.sHeight = 768;
         this.width = canvas.width;
         this.height = canvas.height;
         this.ctx = ctx;
@@ -21,7 +21,7 @@ export class Room1 {
     }
     draw() {
         this.ctx.drawImage(
-            fredRoomImg1,
+            gameMapImg,
             this.sx,
             this.sy,
             this.sWidth,
