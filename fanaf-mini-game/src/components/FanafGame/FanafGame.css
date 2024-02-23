@@ -1,0 +1,10 @@
+#game-canvas {
+    border: solid 4px #5e1db3;
+    border-style: solid;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.gameImage {
+    display: none;
+}
