@@ -298,6 +298,7 @@ export const FanafGame = () => {
 
         window.addEventListener("keypress", (event) => {
             let pressedKey = event.key.toUpperCase();
+            console.log(pressedKey)
             if (pressedKey === "D") {
                 Bonnie.move(Bonnie.getMoveSpeed(), 0, 0, 400);
             }
