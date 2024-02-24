@@ -13,7 +13,6 @@ export const FanafGame = () => {
 
     useEffect(() => {
         const onPageLoad = () => {
-            console.log("componentLoaded");
             startGame();
         };
 
@@ -100,37 +99,37 @@ export const FanafGame = () => {
         let obsticleArray = [];
         obsticleArray = rOpeningRoomObsticle;
         obsticleArray.push({ xFrom: 20, xTo: 578, yFrom: 335, yTo: -45 });
-        Room.addRoom(new Room(2, { x: 0, y: 768 }, right, obsticleArray));
+        Room.addRoom(new Room(0, { x: 0, y: 768 }, right, obsticleArray));
         obsticleArray = blrOpeningRoomObsticle;
-        Room.addRoom(new Room(7, { x: 1024, y: 768 }, right, obsticleArray));
+        Room.addRoom(new Room(1, { x: 1024, y: 768 }, right, obsticleArray));
         obsticleArray = tbrOpeningRoomObsticle;
-        Room.addRoom(new Room(8, { x: 1024, y: 1536 }, right, obsticleArray));
+        Room.addRoom(new Room(2, { x: 1024, y: 1536 }, right, obsticleArray));
         obsticleArray = tbOpeningRoomObsticle;
-        Room.addRoom(new Room(9, { x: 1024, y: 2304 }, up, obsticleArray));
+        Room.addRoom(new Room(3, { x: 1024, y: 2304 }, up, obsticleArray));
         obsticleArray = trOpeningRoomObsticle;
-        Room.addRoom(new Room(10, { x: 1024, y: 3072 }, right, obsticleArray));
+        Room.addRoom(new Room(4, { x: 1024, y: 3072 }, right, obsticleArray));
         obsticleArray = blrOpeningRoomObsticle;
-        Room.addRoom(new Room(12, { x: 2048, y: 768 }, right, obsticleArray));
+        Room.addRoom(new Room(5, { x: 2048, y: 768 }, right, obsticleArray));
         obsticleArray = tlrOpeningRoomObsticle;
-        Room.addRoom(new Room(13, { x: 2048, y: 1536 }, right, obsticleArray));
+        Room.addRoom(new Room(6, { x: 2048, y: 1536 }, right, obsticleArray));
         obsticleArray = lrOpeningRoomObsticle;
-        Room.addRoom(new Room(15, { x: 2048, y: 3072 }, right, obsticleArray));
+        Room.addRoom(new Room(7, { x: 2048, y: 3072 }, right, obsticleArray));
         obsticleArray = blrOpeningRoomObsticle;
-        Room.addRoom(new Room(17, { x: 3072, y: 768 }, right, obsticleArray));
+        Room.addRoom(new Room(8, { x: 3072, y: 768 }, right, obsticleArray));
         obsticleArray = tblOpeningRoomObsticle;
-        Room.addRoom(new Room(18, { x: 3072, y: 1536 }, up, obsticleArray));
+        Room.addRoom(new Room(9, { x: 3072, y: 1536 }, up, obsticleArray));
         obsticleArray = tbOpeningRoomObsticle;
-        Room.addRoom(new Room(19, { x: 3072, y: 2304 }, up, obsticleArray));
+        Room.addRoom(new Room(10, { x: 3072, y: 2304 }, up, obsticleArray));
         obsticleArray = tlOpeningRoomObsticle;
-        Room.addRoom(new Room(20, { x: 3072, y: 3072 }, up, obsticleArray));
+        Room.addRoom(new Room(11, { x: 3072, y: 3072 }, up, obsticleArray));
         obsticleArray = bOpeningRoomObsticle;
-        Room.addRoom(new Room(21, { x: 4096, y: 0 }, null, obsticleArray));
+        Room.addRoom(new Room(12, { x: 4096, y: 0 }, null, obsticleArray));
         obsticleArray = tblOpeningRoomObsticle;
-        Room.addRoom(new Room(22, { x: 4096, y: 768 }, up, obsticleArray));
+        Room.addRoom(new Room(13, { x: 4096, y: 768 }, up, obsticleArray));
         obsticleArray = tOpeningRoomObsticle;
-        Room.addRoom(new Room(23, { x: 4096, y: 1536 }, up, obsticleArray));
+        Room.addRoom(new Room(14, { x: 4096, y: 1536 }, up, obsticleArray));
 
-        Room.setCurrentRoom(Room.getAllRooms()[11]);
+        Room.setCurrentRoom(Room.getAllRooms()[5]);
         let shadowInRoom = false;
         let bonnieWalkCycleInterval = null;
         let building1 = new Room1(canvas, ctx);
@@ -257,7 +256,7 @@ export const FanafGame = () => {
                 shadowTalk.y = 0;
             }
             // @ts-ignore
-            if (Room.getCurrentRoom().room === 21) {
+            if (Room.getCurrentRoom().room === 12) {
                 err.draw();
             }
             makeCover.draw();
